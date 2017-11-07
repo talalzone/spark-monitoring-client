@@ -68,7 +68,7 @@ public class SparkClient {
         return tryGet(service.getStageAttemptTaskSummary(appId, stageId, attemptId, quantiles));
     }
 
-    public Optional<List<StageInfo>> getStageAttemptDetails(String appId, Integer stageId, Integer attemptId) {
+    public Optional<StageInfo> getStageAttemptDetails(String appId, Integer stageId, Integer attemptId) {
         return tryGet(service.getStageAttemptDetails(appId, stageId, attemptId));
     }
 

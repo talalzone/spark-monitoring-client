@@ -119,7 +119,7 @@ public interface SparkRestService {
      * @return
      */
     @GET("applications/{app-id}/stages/{stage-id}/{stage-attempt-id}")
-    Call<List<StageInfo>> getStageAttemptDetails(@Path("app-id") String appId,
+    Call<StageInfo> getStageAttemptDetails(@Path("app-id") String appId,
                                                  @Path("stage-id") Integer stageId,
                                                  @Path("stage-attempt-id") Integer attemptId);
 

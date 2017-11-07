@@ -35,7 +35,7 @@ public class StageInfo {
     private String schedulingPool;
     private List<AccumulatorUpdate> accumulatorUpdates = null;
     private Map<String, Task> tasks;
-    private ExecutorSummary executorSummary;
+    private Map<String, ExecutorSummary> executorSummary;
 
     public String getStatus() {
         return status;
@@ -245,11 +245,11 @@ public class StageInfo {
         this.tasks = tasks;
     }
 
-    public ExecutorSummary getExecutorSummary() {
+    public Map<String, ExecutorSummary> getExecutorSummary() {
         return executorSummary;
     }
 
-    public void setExecutorSummary(ExecutorSummary executorSummary) {
+    public void setExecutorSummary(Map<String, ExecutorSummary> executorSummary) {
         this.executorSummary = executorSummary;
     }
 

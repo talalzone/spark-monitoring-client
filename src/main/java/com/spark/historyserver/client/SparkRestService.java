@@ -60,6 +60,14 @@ public interface SparkRestService {
     Call<List<Application>> getApplications(@QueryMap Map<String, Object> params);
 
     /**
+     * Get the given application
+     * @param appId
+     * @return
+     */
+    @GET("applications/{app-id}")
+    Call<Application> getApplication(@Path("app-id") String appId);
+
+    /**
      * A list of all jobs for a given application.
      *
      * @param appId

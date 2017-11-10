@@ -36,6 +36,10 @@ public class SparkClient {
         return tryGet(service.getApplications(params));
     }
 
+    public Optional<Application> getApplication(String appId) {
+        return tryGet(service.getApplication(appId));
+    }
+
     public Optional<List<Job>> getJobs(String appId) {
         return tryGet(service.getJobs(appId));
     }

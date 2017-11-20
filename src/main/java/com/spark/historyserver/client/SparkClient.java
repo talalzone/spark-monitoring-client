@@ -84,6 +84,10 @@ public class SparkClient {
         return tryGet(service.getAllExecutors(appId));
     }
 
+    public Optional<Environment> getApplicationEnvironment(String appId) {
+        return tryGet(service.getApplicationEnvironment(appId));
+    }
+
     public Optional<List<String>> getApplicationLogs(String appId) {
         Optional<ResponseBody> responseBody = tryGet(service.getApplicationLogs(appId));
         if (!responseBody.isPresent()) return Optional.empty();

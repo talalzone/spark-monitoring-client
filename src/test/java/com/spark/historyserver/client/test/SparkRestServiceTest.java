@@ -112,5 +112,11 @@ public class SparkRestServiceTest {
         System.out.println(response.body());
     }
 
+    @Test
+    public void testGetApplicationEnviroment() {
+        Optional<Environment> applicationEnvironment = client.getApplicationEnvironment("local-1511137904520");
+        System.out.println(applicationEnvironment.get());
+    }
+
 }
 

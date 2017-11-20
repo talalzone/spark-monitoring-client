@@ -222,7 +222,7 @@ public interface SparkRestService {
      * @return
      */
     @GET("applications/{app-id}/environment")
-    Call<Environment> getAppEnvironment(@Path("app-id") String appId);
+    Call<Environment> getApplicationEnvironment(@Path("app-id") String appId);
 
 
     /**

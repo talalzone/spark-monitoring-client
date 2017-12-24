@@ -1,6 +1,6 @@
 # Spark History Server Client
 
-A convenient Java Client for Spark Monitoring API written with [Retrofit](http://square.github.io/retrofit/).
+A convenient Java Client for [Spark Monitoring API](https://spark.apache.org/docs/latest/monitoring.html) written with [Retrofit](http://square.github.io/retrofit/).
 
 ## Getting Started
 **Spark Version: 2.2.0**

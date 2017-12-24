@@ -104,6 +104,10 @@ public class SparkClient {
         return RestUtils.unZip(responseBody.get());
     }
 
+    public SparkRestService getRestService() {
+        return this.service;
+    }
+
     public static SparkClient createDefaultClient() {
         return new Builder()
                 .setBaseUrl(DEFAULT_BASE_URL)

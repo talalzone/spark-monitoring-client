@@ -2,7 +2,6 @@ package org.apache.spark.history.client;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apache.spark.history.client.domain.*;
 import org.apache.spark.history.client.sample.SparkPi;
 import org.testng.Assert;
@@ -10,7 +9,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -27,12 +25,12 @@ public class SparkClientTest {
     private String appId;
 
     @BeforeClass
-    public void setUp() throws FileNotFoundException, InterruptedException {
+    public void setUp() throws InterruptedException {
         // client with default base url
         this.client = SparkClient.createDefaultClient();
 
         // Path to spark logs
-        Config conf = ConfigFactory.parseResources("application.conf");
+        Config conf = ConfigFactory.load();
         String logsPath = conf.getString("spark-history-logs");
 
         // run test app
@@ -40,6 +38,7 @@ public class SparkClientTest {
         sparkPi.setup(logsPath);
         sparkPi.run();
 
+        // set test app id for queries
         this.appId = sparkPi.getAppId();
         LOG.info("AppId: " + appId);
 
@@ -47,7 +46,8 @@ public class SparkClientTest {
     }
 
     @AfterClass
-    public void tearDown() throws IOException {
+    public void tearDown() {
+        client = null;
     }
 
     @Test(priority = 1)

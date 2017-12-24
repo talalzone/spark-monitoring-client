@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Spark API Test">
+
+    <test name="RestAPI Test">
+        <classes>
+            <class name="org.apache.spark.history.client.SparkClientTest"/>
+            <!--<class name="org.apache.spark.history.client.SparkRestService" />-->
+        </classes>
+    </test>
+
+</suite>

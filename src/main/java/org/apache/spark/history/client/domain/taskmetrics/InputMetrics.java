@@ -1,5 +1,5 @@
 
-package org.apache.spark.history.client.domain;
+package org.apache.spark.history.client.domain.taskmetrics;
 
 
 /**

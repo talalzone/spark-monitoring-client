@@ -1,6 +1,5 @@
 package org.apache.spark.history.client;
 
-import com.spark.historyserver.client.domain.*;
 import okhttp3.ResponseBody;
 import org.apache.spark.history.client.domain.*;
 import retrofit2.Call;
@@ -17,7 +16,13 @@ import java.util.Map;
  */
 public interface SparkRestService {
 
-    String BASE_URL = "http://127.0.0.1:18080/api/v1/";
+    public static final String APPLICATION_STATUS_RUNNING = "running";
+    public static final String APPLICATION_STATUS_COMPLETED = "completed";
+
+    public static final String JOB_STATUS_RUNNING = "running";
+    public static final String JOB_STATUS_SUCCEEDED = "succeeded";
+    public static final String JOB_STATUS_FAILED = "failed";
+    public static final String JOB_STATUS_UNKNOWN = "unknown";
 
     /**
      * A list of all applications
@@ -105,7 +110,7 @@ public interface SparkRestService {
      * @param appId
      * @return
      */
-    @GET("applicatons/{app-id}/stages")
+    @GET("applications/{app-id}/stages")
     Call<List<Stage>> getStages(@Path("app-id") String appId);
 
     /**

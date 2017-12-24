@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spark-client.iml" filepath="$PROJECT_DIR$/spark-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-history-client.iml" filepath="$PROJECT_DIR$/spark-history-client.iml" />
     </modules>
   </component>
 </project>

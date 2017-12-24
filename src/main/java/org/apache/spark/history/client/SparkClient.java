@@ -1,9 +1,8 @@
 package org.apache.spark.history.client;
 
-import com.spark.historyserver.client.domain.*;
-import org.apache.spark.history.client.util.RestUtils;
 import okhttp3.ResponseBody;
 import org.apache.spark.history.client.domain.*;
+import org.apache.spark.history.client.util.RestUtils;
 import retrofit2.Call;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
@@ -18,6 +17,8 @@ import java.util.Optional;
  * Created by Talal Ahmed on 14/10/2017
  */
 public class SparkClient {
+
+    public static final String DEFAULT_BASE_URL = "http://127.0.0.1:18080/api/v1/";
 
     private SparkRestService service;
 
@@ -103,8 +104,11 @@ public class SparkClient {
         return RestUtils.unZip(responseBody.get());
     }
 
-    public static SparkClient createWithDefaults() {
-        return new SparkClient.WrapperBuilder().buildDefault();
+    public static SparkClient createDefaultClient() {
+        return new Builder()
+                .setBaseUrl(DEFAULT_BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .get();
     }
 
     private <T> Optional<T> tryGet(Call<T> call) {
@@ -117,34 +121,28 @@ public class SparkClient {
         return Optional.ofNullable(result);
     }
 
-    public static final class WrapperBuilder {
-
+    /**
+     * Wrapper builder on top of Retrofit.Builder
+     */
+    public static final class Builder {
         private Retrofit.Builder builder;
 
-        public WrapperBuilder() {
+        public Builder() {
             builder = new Retrofit.Builder();
         }
 
-        public WrapperBuilder baseUrl(String baseUrl) {
+        public Builder setBaseUrl(String baseUrl) {
             this.builder.baseUrl(baseUrl);
             return this;
         }
 
-        public WrapperBuilder addConverterFactory(Converter.Factory factory) {
+        public Builder addConverterFactory(Converter.Factory factory) {
             this.builder.addConverterFactory(factory);
             return this;
         }
 
-        public SparkClient buildDefault() {
-            SparkRestService sparkRestService = this.baseUrl(SparkRestService.BASE_URL)
-                    .addConverterFactory(MoshiConverterFactory.create())
-                    .build();
-
-            return new SparkClient(sparkRestService);
-        }
-
-        private SparkRestService build() {
-            return this.builder.build().create(SparkRestService.class);
+        private SparkClient get() {
+            return new SparkClient(builder.build().create(SparkRestService.class));
         }
     }
 }

@@ -1,6 +1,11 @@
 
 package org.apache.spark.history.client.domain;
 
+import org.apache.spark.history.client.domain.taskmetrics.InputMetrics;
+import org.apache.spark.history.client.domain.taskmetrics.OutputMetrics;
+import org.apache.spark.history.client.domain.taskmetrics.ShuffleReadMetrics;
+import org.apache.spark.history.client.domain.taskmetrics.ShuffleWriteMetrics;
+
 /**
  * Created by Talal Ahmed on 12/10/2017
  */

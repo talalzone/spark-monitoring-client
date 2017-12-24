@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spark-client" />
+        <module name="spark-history-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spark-client" target="1.8" />
+      <module name="spark-history-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

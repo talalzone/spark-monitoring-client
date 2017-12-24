@@ -1,5 +1,10 @@
 package org.apache.spark.history.client.domain;
 
+import org.apache.spark.history.client.domain.tasksummary.InputMetrics;
+import org.apache.spark.history.client.domain.tasksummary.OutputMetrics;
+import org.apache.spark.history.client.domain.tasksummary.ShuffleReadMetrics;
+import org.apache.spark.history.client.domain.tasksummary.ShuffleWriteMetrics;
+
 import java.util.List;
 
 /**

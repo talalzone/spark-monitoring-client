@@ -1,63 +1,65 @@
 
-package org.apache.spark.history.client.domain;
+package org.apache.spark.history.client.domain.tasksummary;
+
+import java.util.List;
 
 /**
  * Created by Talal Ahmed on 12/10/2017
  */
 public class ShuffleReadMetrics {
 
-    private Long remoteBlocksFetched;
-    private Long localBlocksFetched;
-    private Long fetchWaitTime;
-    private Long remoteBytesRead;
-    private Long localBytesRead;
-    private Long recordsRead;
+    private List<Double> remoteBlocksFetched;
+    private List<Double> localBlocksFetched;
+    private List<Double> fetchWaitTime;
+    private List<Double> remoteBytesRead;
+    private List<Double> localBytesRead;
+    private List<Double> recordsRead;
 
-    public Long getRemoteBlocksFetched() {
+    public List<Double> getRemoteBlocksFetched() {
         return remoteBlocksFetched;
     }
 
-    public void setRemoteBlocksFetched(Long remoteBlocksFetched) {
+    public void setRemoteBlocksFetched(List<Double> remoteBlocksFetched) {
         this.remoteBlocksFetched = remoteBlocksFetched;
     }
 
-    public Long getLocalBlocksFetched() {
+    public List<Double> getLocalBlocksFetched() {
         return localBlocksFetched;
     }
 
-    public void setLocalBlocksFetched(Long localBlocksFetched) {
+    public void setLocalBlocksFetched(List<Double> localBlocksFetched) {
         this.localBlocksFetched = localBlocksFetched;
     }
 
-    public Long getFetchWaitTime() {
+    public List<Double> getFetchWaitTime() {
         return fetchWaitTime;
     }
 
-    public void setFetchWaitTime(Long fetchWaitTime) {
+    public void setFetchWaitTime(List<Double> fetchWaitTime) {
         this.fetchWaitTime = fetchWaitTime;
     }
 
-    public Long getRemoteBytesRead() {
+    public List<Double> getRemoteBytesRead() {
         return remoteBytesRead;
     }
 
-    public void setRemoteBytesRead(Long remoteBytesRead) {
+    public void setRemoteBytesRead(List<Double> remoteBytesRead) {
         this.remoteBytesRead = remoteBytesRead;
     }
 
-    public Long getLocalBytesRead() {
+    public List<Double> getLocalBytesRead() {
         return localBytesRead;
     }
 
-    public void setLocalBytesRead(Long localBytesRead) {
+    public void setLocalBytesRead(List<Double> localBytesRead) {
         this.localBytesRead = localBytesRead;
     }
 
-    public Long getRecordsRead() {
+    public List<Double> getRecordsRead() {
         return recordsRead;
     }
 
-    public void setRecordsRead(Long recordsRead) {
+    public void setRecordsRead(List<Double> recordsRead) {
         this.recordsRead = recordsRead;
     }
 

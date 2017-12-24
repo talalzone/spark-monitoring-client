@@ -26,13 +26,7 @@ public class SparkRestServiceTest {
 
     @BeforeClass
     public void setUp() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(SparkRestService.BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build();
-
-        sparkRestService = retrofit.create(SparkRestService.class);
-        client = SparkClient.createWithDefaults();
+        client = SparkClient.createDefaultClient();
     }
 
     @AfterClass

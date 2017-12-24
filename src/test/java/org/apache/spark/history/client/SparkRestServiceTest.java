@@ -53,12 +53,12 @@ public class SparkRestServiceTest {
 
     @Test(priority = 1)
     public void testGetApplications() throws IOException {
-        Call<List<Application>> getAppCall = this.restService.getApplications();
-        Response<List<Application>> getAppResponse = getAppCall.execute();
+        Call<List<Application>> getAppsCall = this.restService.getApplications();
+        Response<List<Application>> getAppsResponse = getAppsCall.execute();
 
-        Assert.assertTrue(getAppResponse.isSuccessful());
-        Assert.assertNotNull(getAppResponse.body());
-        Assert.assertTrue(getAppResponse.body().size() > 0);
+        Assert.assertTrue(getAppsResponse.isSuccessful());
+        Assert.assertNotNull(getAppsResponse.body());
+        Assert.assertTrue(getAppsResponse.body().size() > 0);
     }
 
     @Test(priority = 2)

@@ -145,7 +145,7 @@ public class SparkClient {
             return this;
         }
 
-        private SparkClient get() {
+        public SparkClient get() {
             return new SparkClient(builder.build().create(SparkRestService.class));
         }
     }

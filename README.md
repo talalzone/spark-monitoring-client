@@ -1,9 +1,9 @@
 # Spark History Server Client
 
-A Restful Java client written with retrofit for Spark Monitoring API.
+A convenient Java Client for Spark Monitoring API written with [Retrofit](http://square.github.io/retrofit/).
 
 ## Getting Started
-**Supported Spark Version: 2.2.0**
+**Spark Version: 2.2.0**
 
 ### Usage
 
@@ -28,12 +28,12 @@ Optional<List<Stage>> stages = this.client.getStages(appId);
    
 ```
 
-Using Spark Client Builder:
+Creating SparkClient using Builder:
 
 ```
 SparkClient client = new SparkClient.Builder()
         .setBaseUrl("http://127.0.0.1:18080/api/v1/") // History Server Url
-        .addConverterFactory(MoshiConverterFactory.create()) // Or other providers
+        .addConverterFactory(MoshiConverterFactory.create()) // For other converters see Retrofit
         .get();
 ```
 
@@ -49,8 +49,9 @@ SparkClient client = SparkClient.createDefaultClient();
 // Get SparkRestService via client
 SparkRestService restService = client.getRestService();
 
+
 // Make API calls
-Call<List<Application>> getAppsCall = this.restService.getApplications();
+Call<List<Application>> getAppsCall = restService.getApplications();
 Response<List<Application>> getAppsResponse = getAppsCall.execute();
 List<Application> applicationList = getAppsResponse.body(); 
 ```

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -13,6 +14,8 @@ import java.util.zip.ZipInputStream;
  * Created by Talal Ahmed on 15/10/2017
  */
 public class RestUtils {
+
+    private static final Logger LOG = Logger.getLogger(RestUtils.class.getName());
 
     public static Optional<List<String>> unZip(ResponseBody body) {
         List<String> results = null;
@@ -25,9 +28,8 @@ public class RestUtils {
             ze = zis.getNextEntry();
 
             while (ze != null) {
-
                 String fileName = ze.getName();
-                System.out.println("file unzip : " + fileName); //TODO: use logs
+                LOG.fine("Unzipping log file: " + fileName);
 
                 StringBuilder sb = new StringBuilder();
                 int val;

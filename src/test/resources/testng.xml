@@ -3,8 +3,8 @@
 <suite name="Spark API Test">
     <test name="Rest Client Test">
         <classes>
-            <class name="org.apache.spark.history.client.SparkClientTest"/>
-            <class name="org.apache.spark.history.client.SparkRestServiceTest" />
+            <class name="org.apache.spark.monitoring.client.SparkClientTest"/>
+            <class name="org.apache.spark.monitoring.client.SparkRestServiceTest" />
         </classes>
     </test>
 </suite>

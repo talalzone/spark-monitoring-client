@@ -1,17 +1,16 @@
 # Spark History Server Client
 
-A convenient Java Client for [Spark Monitoring API](https://spark.apache.org/docs/latest/monitoring.html) written with [Retrofit](http://square.github.io/retrofit/).
+Java Client for [Spark Monitoring API](https://spark.apache.org/docs/latest/monitoring.html) written with [Retrofit](http://square.github.io/retrofit/).
 
 ## Getting Started
-**Spark Version: 2.2.0**
+Tested with Spark V2.2.0
 
 ### Usage
 
-Using Spark Client with default base URL i.e, http://127.0.0.1:18080/api/v1/:
-
+Spark Client with default history server i.e, http://127.0.0.1:18080/api/v1/:
 ```
 // Create client
-SparkClient client = SparkClient.createDefaultClient();
+SparkClient client = SparkClient.createHistoryClient();
 
 // Get all completed applications
 Optional<List<Application>> applications = client.getApplications(SparkRestService.APPLICATION_STATUS_COMPLETED);
@@ -29,7 +28,6 @@ Optional<List<Stage>> stages = this.client.getStages(appId);
 ```
 
 Creating SparkClient using Builder:
-
 ```
 SparkClient client = new SparkClient.Builder()
         .setBaseUrl("http://127.0.0.1:18080/api/v1/") // History Server Url
@@ -42,7 +40,7 @@ Using SparkRestService:
 // Create client //
 ...
 
-SparkClient client = SparkClient.createDefaultClient();
+SparkClient client = SparkClient.createHistoryClient();
 
 ...
 
@@ -61,8 +59,8 @@ For further details see SparkClientTest and SparkRestServiceTest
 ### Installing
 
 ```
-git clone https://github.com/rubrician/spark-history-client.git
-cd spark-history-client
+git clone https://github.com/rubrician/spark-monitoring-client.git
+cd spark-monitoring-client
 mvn clean install
 ```
 

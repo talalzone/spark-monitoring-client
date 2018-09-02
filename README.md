@@ -56,14 +56,22 @@ List<Application> applicationList = getAppsResponse.body();
 
 For further details see SparkClientTest and SparkRestServiceTest
 
-### Installing
+### Install
 
+**Repository**
 ```
-git clone https://github.com/rubrician/spark-monitoring-client.git
+git clone https://github.com/talal830/spark-monitoring-client.git
 cd spark-monitoring-client
 mvn clean install
 ```
-
+**Dependency**
+```
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-monitoring-client</artifactId>
+    <version>2.2.0</version>
+</dependency>
+```
 
 ## Built With
 
